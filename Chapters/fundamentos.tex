@@ -1,0 +1,135 @@
+\chapter{Metodologia}
+\label{chap:metodologia}
+%--------- NEW SECTION ----------------------
+A pesquisa do estudo do estado da arte desenolvido neste documento foi elaborada principalmente a partir do método BILI, que permite realizar uma pesquisa bibliográfica em um banco de dados de artigos científicos, publicações em periódicos, livros e outras fontes de conhecimento científicos, fazendo o levantamento das publicações e dos autores mais impactantes na área pesquisada. Também foram realizadas pesquisas para avaliar as soluções encontradas já no mercado.
+
+O método BILI é dívidido em quatro ciclos que acontecem em sequência. Eles são chamados de ciclo ingênuo, ciclo otimizada, ciclo de impacto e ciclo de produção.
+
+% BIBLIOMETRIX
+
+
+\begin{figure} [h!]	
+  \centering
+  \caption{Método BILI}
+  \includegraphics[width=1\textwidth]{Figures/bili.png}
+  \caption*{Fonte: Autoria própria.}
+  \label{fig:QFD}
+\end{figure}
+
+\section{Ciclo Ingênuo}
+No primeiro ciclo do método BILI é feita uma busca das pesquisas desenvolvidas na área estudada em um banco de dados de documentos acadêmicos, através de palavras-chave que tenham conexão o tema proposto. O banco de dados escolhido para aplicar o método foi o Scopus.
+
+O resultado da busca no banco de dados com as palavras-chave é um arquivo .bib, que contém o nome dos documentos encontrados, palavras-chave, ano de publicação, nome dos autores, DOI, resumo, entre outros.
+
+Em seguida o arquivo .bib gerado no banco de dados é aberto no Bibliometrix, que é um pacote desenvolvido para R que permite uma clara visualização das informações levantadas e também realiza análises dos dados obtido. 
+
+É então realizada a análise da rede de cocitação, que é um gráfico que relaciona os autores, mostrando a proximidade da pesquisa realizada por eles através de citações realizadas nas pesquisas. O resultado dessa análise é positivo se a rede de cocitação estiver coesa, com todos elementos conectados.
+
+É avaliada também a produção científica anual, que é um gráfico que mostra quantas pesquisas foram realizadas na área pesquisada ao longo do tempo. O resultado desse gráfico é coerente quando se tem um crescimento positivo do número de pesquisas realizadas com o passar do tempo.
+
+São avaliados por último os gráficos de histograph e wordcloud, que dão idéia das pesquisas mais importantes realizadas ao longo do tempo e das palavras chaves mais utilizadas, respectivamente.
+
+Se a pesquisa não apresentar resultados coerentes, é realizada uma nova pesquisa com palavras-chave diferentes. Caso seja coerente, o próximo passo é fazer um refinamento das palavras-chave através do litsearchr, que é um pacote desenvolvido para R, que através do arquivo .bib obtido, fornece as palavras-chave mais impactantes dos dados.
+
+\section{Ciclo Otimizado}
+Com as palavras-chave otimizadas obtidas através do litsearchr, é feita uma nova busca no banco de dados acadêmico escolhido, no caso o Scopus, para obter um novo arquivo .bib, da mesma forma que foi obtido no primeiro ciclo.
+
+Os gráfico de rede de cocitação, produção científica anual, wordcloud e histograph são analisados novamente, para avaliar a coerência. Caso verificada a coerência do resultado, é realizada uma filtragem dos resultados através do revtools. O revtools é um pacote desenvolvido também para R onde é possível realizar a leitura do resumos das pesquisas e é possível manter a pesquisa caso ela seja útil ou excluir caso ela não sirva.
+
+O resultado do revtools é um arquivo .csv contendo apenas os documentos que são úteis para a pesquisa. O arquivo então é convertido novamente para o formato .bib e então passado para o próximo ciclo.
+
+\section{Ciclo de Impacto}
+O arquivo .bib gerado no ciclo anterior é novamente aberto no Bibliometrix. Nessa etapa é avaliados o gráfico de author impact by total citation e levantados de três a cinco autores com maior impacto apresentados no gráfico.
+
+\section{Ciclo de Produção}
+Por último são coletados os artigos dos autores selecionados no banco de dados e é feita a leitura completa dos artigos. 
+
+É feito o upload dos artigos e leitura na plataforma Mendeley. Nesse aplicativo é possível compartilhar os artigos com grupos de estudo e também fazer anotações e grifar trechos importantes. 
+
+A partir dos conhecimentos adquiridos é feito um mapa conceitual que relaciona os principais conceitos apresentados para servir de base para o desenvolvimento desse documento.
+
+%----------------------------------------------------------
+
+%--------- NEW SECTION ----------------------
+
+
+%---------------picture------------------------------------
+% \begin{figure}
+%     \centering
+%     \subfigure[Figure A]{\label{fig:a}\includegraphics[width=60mm]{./lq}}
+%     \subfigure[Figure B]{\label{fig:b}\includegraphics[width=60mm]{./lq}}
+%     \subfigure[Figure C]{\label{fig:c}\includegraphics[width=\textwidth]{./lq}}
+%     \caption{Three simple graphs}
+%     \label{fig:three graphs}
+% \end{figure}
+%----------------------------------------------------------
+
+% \begin{figure}
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{./lq}
+%         \caption{$y=x$}
+%         \label{fig:y equals x}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.3\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{./lq}
+%         \caption{$y=3sinx$}
+%         \label{fig:three sin x}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.3\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{./lq}
+%         \caption{$y=5/x$}
+%         \label{fig:five over x}
+%     \end{subfigure}
+%        \caption{Three simple graphs}
+%        \label{fig:three graphs}
+% \end{figure}
+
+
+%--------- NEW SECTION ----------------------
+% \section{Assunto 2}
+% \label{sec:ass2}
+% flkjasdlkfjasdlkfjs
+
+% \begin{table}[h]
+%     \begin{subtable}[h]{0.45\textwidth}
+%         \centering
+%         \begin{tabular}{l | l | l}
+%         Day & Max Temp & Min Temp \\
+%         \hline \hline
+%         Mon & 20 & 13\\
+%         Tue & 22 & 14\\
+%         Wed & 23 & 12\\
+%         Thurs & 25 & 13\\
+%         Fri & 18 & 7\\
+%         Sat & 15 & 13\\
+%         Sun & 20 & 13
+%        \end{tabular}
+%        \caption{First Week}
+%        \label{tab:week1}
+%     \end{subtable}
+%     \hfill
+%     \begin{subtable}[h]{0.45\textwidth}
+%         \centering
+%         \begin{tabular}{l | l | l}
+%         Day & Max Temp & Min Temp \\
+%         \hline \hline
+%         Mon & 17 & 11\\
+%         Tue & 16 & 10\\
+%         Wed & 14 & 8\\
+%         Thurs & 12 & 5\\
+%         Fri & 15 & 7\\
+%         Sat & 16 & 12\\
+%         Sun & 15 & 9
+%         \end{tabular}
+%         \caption{Second Week}
+%         \label{tab:week2}
+%      \end{subtable}
+%      \caption{Max and min temps recorded in the first two weeks of July}
+%      \label{tab:temps}
+% \end{table}
