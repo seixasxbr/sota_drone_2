@@ -1,46 +1,45 @@
-\chapter{Desenvolvimento do projeto}
+\chapter{Estudo do Estado da Arte}
 \label{chap:metod}
-Nesta seção será descrito o procedimento utilizado para construção inicial do robô Walker, incluindo as fases conceitual e design.  Será apresentado a ideação do projeto, especificações e as funcionalidades.
-
-\section{Ideação}
-%escrever oq sera apresentado
-
-\subsection{Arquitetura Geral}
- A arquitetura geral, apresentada na Figura \ref{fig:Arquitetura geral}, relaciona de modo geral a interface do usuário, com a central de gerenciamento do sistema e com a interface com hardware. Neste contexto, a interface do usuário representa o contato direto com o usuário por meio de um botão \textit{on/off}, um \textit{joystick} e por acesso remoto, através de um computador devidamente conectado.
-
- \begin{figure} [h!]	
-    \centering
-
-    \caption{Arquitetura Geral}
-    \includegraphics[width=0.8\textwidth]{general_architecture}
-    \caption*{Fonte: Autoria própria.}
-    \label{fig:Arquitetura geral}
-\end{figure}	
-
-Para a central de gerenciamento do sistema utilizou-se o sistema operacional \textit{Ubuntu} 20.04 junto ao framework de robótica ROS \textit{Noetic}. Neste cojunto se encontram as principais funcionalidades do robô: percepção, navegação, detecção e controle. Por fim, no conjunto de saídas estão os atuadores e os alertas sonoro e luminoso.
-
-\subsection{Requisitos técnicos}
-
-%desdobramento da função qualidade
-\subsection{Quality Function Deployment}
-\textit{Quality Function Deployment} é uma ferramenta de qualidade que auxilia na conversão das demandas do cliente em características de qualidade do produto. Dessa forma, no primeiro ciclo do QFD foram analisados os requisistos do cliente e os requisitos técnicos necessários, sinalizando os pontos mais importantes e as relações entre estes. O resultado foi exposto na \ref{fig:QFD}
-
-\begin{figure} [h!]	
-    \centering
-    \caption{ Primeiro ciclo QFD}
-    \includegraphics[width=0.8\textwidth]{Figures/QFD}
-    \caption*{Fonte: Autoria própria.}
-    \label{fig:QFD}
-\end{figure}
- Através do QFD foi possível observar 
+Nessa pesquisa foram abordados diversos aspectos que envolvem a concepção de um projeto envolvelmento um UAV do tipo quadrotor. O desenvolvimento de uma plataforma desse tipo ainda envolve desafios estruturais, autonomia, controle, localização entre outros, que necessitam de estudo prévio detalhado para ser alcançado um bom resultado com o veículo.
 
 % %--------- NEW SECTION ----------------------
-% \section{Interface do Usuário}
+\section{Quadrotores}
 % \label{sec:ui}
-% \lipsum[1]
+Quadrotores são aeronaves de asas rotativas, ou seja, são sustentandas e movimentadas por rotores. Diferente das aeronaves de asas fixas, como aviões, os aeronaves de asas rotativas não utilizam seu movimento horizontal para sustentar seu vôo. Isso faz com que esse tipo de veículo apresente um consumo energético muito maior. Apesar disso, as aeronaves de asas rotativas possuem a habilidade de realizar pouso e decolagem vertical, além de poder realizar vôos estacionários.
 
-% %--------- NEW SECTION ----------------------
-% \section{Simulação do sistema}
-% \label{sec:sim}
-% \lipsum[2-4]
+As aeronaves de asas rotativas são classificadas como multirotores, sendo seus tipos mais importantes quadrotores, hexarotores, octarotores, coaxiais ou helicópteros. Os quadrotores são veículos que apresentam alta manobrabilidade e alto payload, mas apresentam também alto gasto energético, tornando baixa o seu tempo de vôo, sendo um desafio achar baterias mais efieciente que aumentem sua autonomia. A medida que aumenta-se o número de rotores, passando de quadrotores para hexarotores e octarotores, aumenta-se também o payload, que é o quanto a aeronave consegue carregar em relação ao seu peso, e a tolerância a falha, que é continuar realizando um vôo controlado mesmo com algumas das hélices apresentando falhas de funcionamento. Entretanto, diminui-se também a manobrabilidade e aumenta-se o consumo energético.
 
+\subsection{Classificações}
+Os quadrotores são classificados em diversas categorias, possuindo cada uma delas caracacterísticas específicas, que podem ajudar no design do projeto e também na escolha de componentes que vão ajudar na operação da aeronave.
+
+\subsubsection{Classificação Quanto ao Peso}
+Os UAVs são classificados em diversas categorias de acordo com o quanto eles pesam. UAVs que pesam até 2 quilogramas (kg) são classificados como micro, de 2 kg até 7 kg são classificados como mini, de 7 kg até 25 kg são classificados como pequenos, de 25 kg até 150 kg, como médios e de 150 kg em diante são classificados como grandes.\\
+Quadrotores mais leves são mais ágeis por serem menores e por isso terem inércias menores. Possuindo assim maiores. acelerações angulares 
+\subsubsection{Classificação Quanto a Configuração}
+Os quadrotores tem duas configurações possíveis em relação à disposição de seus rotores. Os rotores podem ter a a configração em forma de "+", em que a frente da aeronave fica alinhada com uma das hastes que suporta um par de rotores. Essa configuração também é conhecida como cruz. A outra confuração possível é a configuração em "x", em que a frente da aeronave fica a 45$^{\circ}$ do eixo que contém a haste da aeronave, ficando assim a frente da aeronave no meio de duas hastes, como mostrado na Figura.
+
+A configuração em "+" é mais acrobática, entretando, como desvantagens, a haste dos rotores bloqueia o campo de visão da câmera e também apresenta um momento de guinada ao translacionar, necessitando de um maior gasto energético para estabilizar a aeronave.
+
+A configuração em "x" não apresenta esse efeito, por ter os movimentos de arfagem e rolagem desacoplados do de guinada. Apresenta menor esforço para transladar pois todos rotores agem nesses movimentos, diferente da configuração em "+", em que apenas um par de rotores é responsável pelo deslocamento enquanto o outro se mantém com velocidades constantes. É mais estável, entrentando apresenta menor manobrabilidade.
+\subsubsection{Ambiente de Operação}
+Os quadrotores podem operar em dois tipos de missões: outdoor e indoor. As missões outdoor são as missões em que os quadrotores são expostos a ambientes desconhecidos, onde existe a forte presença de pertubações, como rajadas de vento. Nesse tipo de missão, os quadrotores muitas vezes vão precisar de sensores do tipo GPS para ajudar na localização do veículo e também de um controlador adequado para lidar com a rejeição de pertubação. As missões indoor possuem menos pertubações e ambientes mias estruturados. Sendo possível fazer o mapeamento prévio do ambiente para realizar as operações 
+
+\subsection{Principais Componentes}
+\subsubsection{IMU}
+\subsubsection{Rotores}
+\subsubsection{Baterias}
+\subsubsection{Microprocessador}
+
+\section{Revisão Bibliográfica}
+% \label{sec:ui}
+\subsection{Autores}
+\subsection{Artigos}
+
+\section{Ambiente de Aplicação}
+% \label{sec:ui}
+
+\section{Funcionalidades}
+% \label{sec:ui}
+
+\section{Mapa Conceitual}
+% \label{sec:ui}
