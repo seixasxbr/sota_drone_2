@@ -37,9 +37,50 @@ Os quadrotores podem operar em dois tipos de missões: outdoor e indoor. As miss
 
 \section{Ambiente de Aplicação}
 % \label{sec:ui}
+O uso do veículos aéreos não tripulados do tipo quadrotor tem se expandido em diversas áreas, tanto civíl, quanto militar e também acadêmica.
+
+No ambiente acadêmico, os quadrotores são utilziados como plataforma para teste de estratégias de controle, dada a dificuldade de se estabilizar e de controlar esse tipo de veículo, e também para teste de técnicas de planejamento de trajetória, por se deslocar no espaço tridimensional.
+
+Os quadrotores por não necessitarem de um piloto embarcado, poderem ser pequenos e ágeis podem ser utilizados em missões de busca e resgate em abientes hostis, como casos de desmoronamento ou soterramento, e também em missões de espionagem e vigilância, por chamaerem pouca atenção.
+
+Tem-se crescido muito o uso de aeronaves do tipo quadrotor na área de agricultura de precisão. Os drones podem ser utilizados para monitorar uma lavroura, mapear, distribuir uso de defensivos, semear e até mesmo irrigar.
+
+Outra área de grande utilização é a de enterterimento. Existem muitos drones são comercializados com finalidade exclusivamente lúdica, podendo ser equipados com câmeras para produzir fotografias e vídeos. São utilizados tambpem na cinematografia para realizar essas filmagnes aéreas, que antes eram feitas por helicópteros tripulados que tinham custo associados muito maiores.
+
 
 \section{Funcionalidades}
 % \label{sec:ui}
+\subsection{Controle}
+Os quadrotores são veículos subatuadas, ou seja, possuem mais graus de liberdade do que atuadores, são naturalmente instáveis e apresentam comportamento não-linear. Devido a esses fatores, esse tipo de veículo necessita de uma estrutura de controle adequada bem ajustada para que sejá possível a estabilização e o seguimento de referência.
+
+Os controladores que atuam no quadrotor geralmente são utilizados em cascata, de forma que existe um controle de baixo nível para garantir uma velocidade de rotação desejada nos rotores, um controlador em um npivel mais alto para controlar a altitude e as velocidade angulares de rolagem, arfagem e rolagem e por último um controlador no nível mais alto controladando posições lineares no espaço tridimensional.
+
+Os controlador mais comumente usado em baixo nível para controlar a velocidade de de roatação dos propulsores é o PID. 
+
+Os controladores que controlam atitude, altitude e posições lineares no quadrotor podem ser controladores lineares ou não-lineares. Para serem utilizados controladores lineares é necessário realizar uma linearização do modelo matemático do quadrotor, considerando pequenas variações de ângulo. Os controladores lineares que são mais amplamente utilizados são os controladores PID, LQR, H2, H$\infty$ e controle adaptativo. Como alguns parãmetros do quadrotor podem apresentar incertezas ou até mesmo variar durante a operação, também é possível adcionar robustez a esses controladores, podendo ajudar também na rejeição de pertubação.
+
+Os controladores não-lineares mais amplamente utilizados são os controladores por inversão de modelo, o sliding mode control (SMC) e o controlador Fuzzy.
+
+\subsection{Localização}
+A localização do quadrotor pode ser auxiliada por uso de diversos sensores como LiDAR, GPS, IMU, câmeras monoculares, sensores ultrassônicos e lasers.
+
+A IMU pode ser utilizada para a funcionalidade de localização através da odometria. A IMU pode contar com giroscópio, acelerômetro, magnetômetro e até mesmo barômetro.
+
+Os sensores que são mais amplamente utilizados atualmente são os sensores baseados em visão. É possível obter bons resultados apenas utilizando câmeras monoculares, como mostrado em ... utilizando o pacote ORB Slam.
+
+Os sensores GPS são amplamente utilizados para missões outdoor e os sensores ultrassônicos e baseados em laser são utilizados para auxiliar na medição da altitude.
+
+Pode-se realizar a fusão sensorial de diversos sensores para se obter uma boa estimativa da localização da aeronave. A técnica mais amplamente utilizada é a de filtragem, como a do filtro extendido de kalman, EKF, porém ela sofre com o drift, que é um deslocamento não considerado pela medição. Outra opção é o ? framework de otimização não-linear, que apresenta resultados mais consistentes, porém apresenta um custo computacional superior.
+
+\subsection{Planejamento de Trajetória}
+Existem diversos algoritmos que podem ser utilizados para realizar o planejamento de trajetória do quadrotor.
+\begin{itemize}
+    \item Artificial potential field
+    \item probabilistic roadmap
+    \item belief roadmap
+    \item 
+\end{itemize}
+
 
 \section{Mapa Conceitual}
 % \label{sec:ui}
