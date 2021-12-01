@@ -15,19 +15,25 @@ Os quadrotores são classificados em diversas categorias, possuindo cada uma del
 \subsubsection{Classificação Quanto ao Peso}
 Os UAVs são classificados em diversas categorias de acordo com o quanto eles pesam. UAVs que pesam até 2 quilogramas (kg) são classificados como micro, de 2 kg até 7 kg são classificados como mini, de 7 kg até 25 kg são classificados como pequenos, de 25 kg até 150 kg, como médios e de 150 kg em diante são classificados como grandes.\\
 Quadrotores mais leves são mais ágeis por serem menores e por isso terem inércias menores. Possuindo assim maiores. acelerações angulares 
+
 \subsubsection{Classificação Quanto a Configuração}
 Os quadrotores tem duas configurações possíveis em relação à disposição de seus rotores. Os rotores podem ter a a configração em forma de "+", em que a frente da aeronave fica alinhada com uma das hastes que suporta um par de rotores. Essa configuração também é conhecida como cruz. A outra confuração possível é a configuração em "x", em que a frente da aeronave fica a 45$^{\circ}$ do eixo que contém a haste da aeronave, ficando assim a frente da aeronave no meio de duas hastes, como mostrado na Figura.
 
 A configuração em "+" é mais acrobática, entretando, como desvantagens, a haste dos rotores bloqueia o campo de visão da câmera e também apresenta um momento de guinada ao translacionar, necessitando de um maior gasto energético para estabilizar a aeronave.
 
 A configuração em "x" não apresenta esse efeito, por ter os movimentos de arfagem e rolagem desacoplados do de guinada. Apresenta menor esforço para transladar pois todos rotores agem nesses movimentos, diferente da configuração em "+", em que apenas um par de rotores é responsável pelo deslocamento enquanto o outro se mantém com velocidades constantes. É mais estável, entrentando apresenta menor manobrabilidade.
+
 \subsubsection{Ambiente de Operação}
 Os quadrotores podem operar em dois tipos de missões: outdoor e indoor. As missões outdoor são as missões em que os quadrotores são expostos a ambientes desconhecidos, onde existe a forte presença de pertubações, como rajadas de vento. Nesse tipo de missão, os quadrotores muitas vezes vão precisar de sensores do tipo GPS para ajudar na localização do veículo e também de um controlador adequado para lidar com a rejeição de pertubação. As missões indoor possuem menos pertubações e ambientes mias estruturados. Sendo possível fazer o mapeamento prévio do ambiente para realizar as operações 
 
 \subsection{Principais Componentes}
+
 \subsubsection{IMU}
+
 \subsubsection{Rotores}
+
 \subsubsection{Baterias}
+
 \subsubsection{Microprocessador}
 
 \section{Revisão Bibliográfica}
@@ -50,10 +56,18 @@ Outra área de grande utilização é a de enterterimento. Existem muitos drones
 
 \section{Funcionalidades}
 % \label{sec:ui}
+
+\subsection{Modelagem}
+A modelagem de um quadrotor é uma das etapas mais importantes no desenvolvimento de um projeto envolvendo esse tipo de veículo. Por ser uma plataforma instável, se torna inviável realizar técnicas de identificação em malha aberta. Sendo assim, é necessário obter o modelo dinâmico da aeronave através de técnicas de modelagem.
+
+A modelagem da aeronave pode ser obtida através das equações de Newton-Euler ou através do formalismo de Euler-Lagrange (CASTILLO 2005). Através dessa modelagem é possível obter o modelo de alto nível, onde os torques e forças são entradas e as saídas são posições angulares e lineares. 
+
 \subsection{Controle}
 Os quadrotores são veículos subatuadas, ou seja, possuem mais graus de liberdade do que atuadores, são naturalmente instáveis e apresentam comportamento não-linear. Devido a esses fatores, esse tipo de veículo necessita de uma estrutura de controle adequada bem ajustada para que sejá possível a estabilização e o seguimento de referência.
 
-Os controladores que atuam no quadrotor geralmente são utilizados em cascata, de forma que existe um controle de baixo nível para garantir uma velocidade de rotação desejada nos rotores, um controlador em um npivel mais alto para controlar a altitude e as velocidade angulares de rolagem, arfagem e rolagem e por último um controlador no nível mais alto controladando posições lineares no espaço tridimensional.
+Os controladores que atuam no quadrotor geralmente são utilizados em cascata (NONAMI,2010), de forma que existe um controle de baixo nível para garantir uma velocidade de rotação desejada nos rotores, um controlador em um npivel mais alto para controlar a altitude e as velocidade angulares de rolagem, arfagem e rolagem e por último um controlador no nível mais alto controladando posições lineares no espaço tridimensional. (kendoul)
+
+Controlador hierárquico, estabilidade global
 
 Os controlador mais comumente usado em baixo nível para controlar a velocidade de de roatação dos propulsores é o PID. 
 
@@ -78,7 +92,11 @@ Existem diversos algoritmos que podem ser utilizados para realizar o planejament
     \item Artificial potential field
     \item probabilistic roadmap
     \item belief roadmap
-    \item 
+    \item potential fields (PF)
+    \item Heuristic search algorithms
+    \item Optimization methods
+    \item planning under uncertainties
+    \item reactive and bio-inspired obstacle avoidance methods
 \end{itemize}
 
 
