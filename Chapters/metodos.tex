@@ -87,7 +87,20 @@ Os sensores GPS são amplamente utilizados para missões outdoor e os sensores u
 Pode-se realizar a fusão sensorial de diversos sensores para se obter uma boa estimativa da localização da aeronave. A técnica mais amplamente utilizada é a de filtragem, como a do filtro extendido de kalman, EKF, porém ela sofre com o drift, que é um deslocamento não considerado pela medição. Outra opção é o ? framework de otimização não-linear, que apresenta resultados mais consistentes, porém apresenta um custo computacional superior.
 
 \subsection{Planejamento de Trajetória}
-Existem diversos algoritmos que podem ser utilizados para realizar o planejamento de trajetória do quadrotor.
+O planejamento de trajetória é fundamental para que o quadrotor se torne uma plataforma completamente autônoma. Através dessa funcionalidade o veículo pode calcular uma rota para se deslocar da sua posição atual até uma posição final sem a interferência humana, sendo de extrema importância para o objetivo final do projeto que é tornal o drone capaz de realizar um pouso autônomo em uma plataforma móvel.
+
+Diversas técnicas de planejamento de trajetória tem sido usados para lidar com o problema Belief Rodamap (onde eu vi?), A*, algorítmos? genéticos, e algorítmoos com inteligência artificial
+
+Em (v. Roberge 2013) (smiluação) foi feito um estudo de comparação entre o planejamento de trajeoria através do algoritmo genético e da otimização por enxame de partículas. explicar as técnicas.
+Ambas as técnicas aprtesentaram boas soluções em tempos computacionais relativamente curtos (quanto?). Como conclusão foi observado que com significância estatística o GA apresenta melhores trajetórias ao PSO. Para comparar os resultados foi realizar o t-teste sobre o a função custo
+
+Em (Y CHEM,2014) é feito o planejamento de trajetória através da técnica Artificial Potential Field, que é vantajosa por ser implementada através de um algoritmo de estrutura simples, com uma descrição matemática conscistente e conveniente para controle em tempo real, além de possuir uma grande portabilidade, podendo solucionar o problema de desvio de obstáculos mundando a fonte do campo potencial artificial. (Y CHEM,2014). A técnica também pode ser utilizada para o planejamento de trajetória de vôo em formações de múltiplos UAVs. Apesar das diversas vantagens, o APF na configuração padrão não resulta na trajetória ótima, sendo possível ser combinado com outras técnicas como o algoritmo genético ou algoritmos evolucionários para melhorar seus resultados. FALAR de NMPC? O APF é baseado na idéia de que o destino funciona como um campo potencial atrativo para o UAV, enquanto os obstáculos funcionam como campos potenciais repulsivos. Nessa pesquisa, o APF é reconstruído sobre a otimização com restrições introduzida com a força de controle adicional.
+
+Em (Y Chem,2015), é utilizada um algoritmo de de otimização derivado do Central Force Optimizatin (CFO), chamado de Modified Central Force Optimization. O CFO é um algoritmo de otimização de partícula inteligente baseado na lei da gravidade, onde cada solução é uma partícula. As partículas se atraem com a força gravitacional virtual. As massas dessas partículas são dependendes da função custo de cada solução. Na metáfora do CFO, quando uma massa está sobre forte influência de uma massa, ela fica presa em seu campo gravitacional, o que é análogo a localizar um valor máximo para uma função objetivo.
+No MCFO são adcionados conceitos da otimização por Enxame de partículas (PSO) além do operador de mutação do algoritmo genético (GA) para melhorar os resultados do CFO. Os resultados da poesquisa mostraram resultados em simulação superiores aos das técnicas com o algoritmo CFO, GA, PSO e de bucas aleatórias. FA? tambem.
+
+Em (muller 2015), é apresentado um método computacional mente eficiente que calcula trajetórias com funções de posição polinomiais três vezes diferenciáveis, considerando as retrições de velocida e aceleração do veículo. O algoritmo foi testado com a captura de uma bola arremessada pelo quadrotor.
+ 
 \begin{itemize}
     \item Artificial potential field
     \item probabilistic roadmap
@@ -98,6 +111,7 @@ Existem diversos algoritmos que podem ser utilizados para realizar o planejament
     \item planning under uncertainties
     \item reactive and bio-inspired obstacle avoidance methods
 \end{itemize}
+
 
 
 \section{Mapa Conceitual}
