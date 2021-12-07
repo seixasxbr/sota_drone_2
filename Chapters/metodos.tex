@@ -28,9 +28,17 @@ Os quadrotores podem operar em dois tipos de missões: outdoor e indoor. As miss
 
 \subsection{Principais Componentes}
 
-\subsubsection{IMU}
+\subsubsection{Sensores Inerciais}
 
-\subsubsection{Rotores}
+Os VANTs são geralmente equipados com uma IMU (Inertial Measurement Unit), que são dispositos que são compostos por giroscópios, acelerômetros e magnetômetros. Os giroscópios são sensores capazes de medir a velocidade angular do veículo nos três eixos, os acelerômetros são responsáveis por calcular as acelerações lineares nos três eixos e o magnetômetro mede campos magnéticos nos três eixos. Devido ao forte campo magnético existente no planeta Terra, é possível obter a orientação do robô também através da obtenção da magnitude do campo magnético atuando no eixos da aeronave. Através da fusão sensorial é possível obter a atitude do robô e realizar odometria. Muita vezes também são utilizdos sensores do tipo barômetro, que são sensores capazes de medir a pressão atmosférica. Como a pressão atmosférica varia com a altitude, é possível mensurar a altura da aeronave em relação ao nível do mar da aeronave com a utilização desse sensor.
+
+\subsubsection{Motores}
+
+Falar sobre hélices?
+
+Os motores DC são máquinas elétricas de corrente contínua (CC) que são constituídos por uma armadura ou rotor que é a parte giratória montada sobre o eixo da máquina, um estator de material ferromagnetico envolvido pelo enrolamento de campo, um comutador com função de manter o torque gerado em um determinado sentido e de escovas, que são conectores fixos que permitem od eslizamento do comutador no eixo da armadura. enrolamento de armadura. Os motores DC possuem uma grande variabilidadade de velocidade de operação, podendo operar acima e abaixo do valor nominal, possuem alta aceleração, podendo varias de velocidade rapidamente, inclusive mantendo o toqrque constante e não necessitam de conversores complexos. Como desvantagens, eles necessitam de manutenção constante para a troca de escovas, são mais caros e maiores do que motores CA com mesma potência e também possuem centelhamento.
+
+O motor brushless DC (BLDC) é um motor de corrente contínua síncrono que é alimentado por corrente contínua (CC) e não possui escovas de contato elétrico. Ele é composto por imãs permanentes, chamados de magnetos, que podem ser localizados no estator externo ou no centro no estator interno. A vantagem desse tipo de motor é que eles são altamente eficientes, pois possuem menos perdas por atrito, resultando em torques maiores. Essa eficiência é de grande valia para os quadrotores, pois um grande desafio associado a operação com esse tipo de veículo é a autonomia. A redução do atrito também faz com que a vida útil desse tipo de motor seja maior e que seja necessário ter menos manutenções, por não necessitar trocar as escovas.
 
 \subsubsection{Baterias}
 
