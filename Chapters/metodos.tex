@@ -13,6 +13,8 @@ As aeronaves de asas rotativas são classificadas como multirotores, sendo seus 
 Os quadrotores são classificados em diversas categorias, possuindo cada uma delas caracacterísticas específicas, que podem ajudar no design do projeto e também na escolha de componentes que vão ajudar na operação da aeronave.
 
 \subsubsection{Classificação Quanto ao Peso}
+L. Brooke-Holland, Unmanned Aerial Vehicles (drones): An Introduction, House of
+
 Os UAVs são classificados em diversas categorias de acordo com o quanto eles pesam. UAVs que pesam até 2 quilogramas (kg) são classificados como micro, de 2 kg até 7 kg são classificados como mini, de 7 kg até 25 kg são classificados como pequenos, de 25 kg até 150 kg, como médios e de 150 kg em diante são classificados como grandes.\\
 Quadrotores mais leves são mais ágeis por serem menores e por isso terem inércias menores. Possuindo assim maiores. acelerações angulares 
 
@@ -87,10 +89,11 @@ Os controladores que controlam atitude, altitude e posições lineares no quadro
 
 Os controladores não-lineares mais amplamente utilizados são os controladores por inversão de modelo, o sliding mode control (SMC) e o controlador Fuzzy.
 
-Lyapunov criteria
+A técnica de sliding mode control (SMC) é um método de controle não-linear baseado do critério de estabildiade de lyapunov, que atinge seu objetivo através da definição de uma superfície de deslizamento onde estararão as trajetórias do sistema que são atingidas através de funções de chaveamento.O SMC é uma técnica que une robustez com velocidade de convergência, o que permite a aeronave realizar missões de difíceis trajetórias, lidar com grandes variações de parâmetros e pertubações. A técnica SMC também permite contruir um observador de estados, para aplicações em que a medição de determinados pode se encontrar ausente ou falhar por alguns instantes. Em (Zhao,2018) foi utilizada a um SMC adaptativo utilizando a técnica de backstepping um quadrotor e comparados os resultados com o PID e com o SMC padrão em ambiente simulacional, mostando melhores resultados o SMC adaptativo.
 
-sliding mode control\\
-A técnica de sliding mode control (SMC) é baseado do crtério de estabildiade de lyapunov. O SMC pode ser utilizado para aplicações em que o veóculo é submetido a trajetórias difícieis e pode lidar com grandes varições de parâmetros. O SMC pode lidar com incertezas paramétricas, erros de modelagem e pertubações.
+A técnica Backstepping é uma técnica de controle não linear recursiva baseada também no critério de Lyapunov, que obtêm um controlador que estabiliza a aeronave formalmente. Essa é uma técnica que se encaixa bem em uma arquitetura de controle em cascata cumprindo a função de controlador de atitude. A técnica se mostra eficiente para lidar com o controle da orientação da aeronave na presença de fortes pertubações.
+
+O controlador Fuzzy é feitod e tal forma que entradas e saídas são mapeadas através da definição de funçôes de pertencimento. Em (SAntos,2010) é aplicado um controlador Fuzzy em um quadrotor para controlar a orientação da aeronave e a altitude, enquanto as entradas era a potência designada para cada motor. A técnica Fuzzy pode ser combinada com outras técnicas de controle também. Em (Nicol C.) é utilizada uma técnica chamada Cerebellar Model Articulation Controller  (CMAC) que garante um aprendizado e adaptação rápida. O CMAC associa rede neural, com técnica fuzzy e controle adaptativo. A técnica se mostrou ser computacionalmente eficiente, mas sendo necessário ajustes para adcionar robustez. Em Deepak Gautam é utilizado um PID com auto tunagem dos parâmetros através de algorítmo Fuzzy. Foram obtidos resultados melhores doi que um controlador PID segundo o críterioo de integral do erro quadrático.
 
 
 \subsection{Localização}
