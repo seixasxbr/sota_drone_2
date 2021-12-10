@@ -85,9 +85,14 @@ Controlador hierárquico, estabilidade global
 
 Os controlador mais comumente usado em baixo nível para controlar a velocidade de de roatação dos propulsores é o PID. 
 
-Os controladores que controlam atitude, altitude e posições lineares no quadrotor podem ser controladores lineares ou não-lineares. Para serem utilizados controladores lineares é necessário realizar uma linearização do modelo matemático do quadrotor, considerando pequenas variações de ângulo. Os controladores lineares que são mais amplamente utilizados são os controladores PID, LQR, H2, H$\infty$ e controle adaptativo. Como alguns parãmetros do quadrotor podem apresentar incertezas ou até mesmo variar durante a operação, também é possível adcionar robustez a esses controladores, podendo ajudar também na rejeição de pertubação.
+Os controladores que controlam atitude, altitude e posições lineares no quadrotor podem ser controladores lineares ou não-lineares. Para serem utilizados controladores lineares é necessário realizar uma linearização do modelo matemático do quadrotor, considerando pequenas variações de ângulo.
 
-Os controladores não-lineares mais amplamente utilizados são os controladores por inversão de modelo, o sliding mode control (SMC) e o controlador Fuzzy.
+Os controladores lineares que são mais amplamente utilizados são os controladores PID, LQR, H2, H$\infty$ e controle adaptativo. Como alguns parãmetros do quadrotor podem apresentar incertezas ou até mesmo variar durante a operação, também é possível adcionar robustez a esses controladores, podendo ajudar também na rejeição de pertubação. O controlador PID é um controlador prático e de fácil implementação que pode ser usado sem o conhecimento da dinâmica do sistema ajustando os parâmetros empiricamente. A técnica foi uma das primeiras a ser utilizada e é constantemente utilizada como parâmetro de comparação para outras técnicas. Foi implementado com sucesso em trabalho como (Bouabdalah 2004), (hoofman 207).
+
+O Regulador Quadrático Linear (LQR) é um controlador de realimentação de estado que minimiza uma função custo que pondera o sinal de controle e o erro do segmento de referência. Foi incialmente implementado em Bouabdalha 2004... em waslander 2005 
+
+Os controladores não-lineares mais amplamente utilizados são os controladores por in
+versão de modelo, o sliding mode control (SMC) e o controlador Fuzzy.
 
 A técnica de sliding mode control (SMC) é um método de controle não-linear baseado do critério de estabildiade de lyapunov, que atinge seu objetivo através da definição de uma superfície de deslizamento onde estararão as trajetórias do sistema que são atingidas através de funções de chaveamento.O SMC é uma técnica que une robustez com velocidade de convergência, o que permite a aeronave realizar missões de difíceis trajetórias, lidar com grandes variações de parâmetros e pertubações. A técnica SMC também permite contruir um observador de estados, para aplicações em que a medição de determinados pode se encontrar ausente ou falhar por alguns instantes. Em (Zhao,2018) foi utilizada a um SMC adaptativo utilizando a técnica de backstepping um quadrotor e comparados os resultados com o PID e com o SMC padrão em ambiente simulacional, mostando melhores resultados o SMC adaptativo.
 
