@@ -58,22 +58,32 @@ As baterias mais amplamente utilizadas para UAVs são baterias polímero de lít
 O microcontrolador é responsável por realizar a comunicação entre componentes e funcionalidades e a implementação do controlador que irá atuar nos propulsores. Existem diversos modelos no mercado, com diferentes frequências de operação ou clock, memória flash, RAM, EEPROM e tensão de alimentação. O clock determina quantas operações o microprocessador consegue fazer por unidade de tempo, quanto maior essa velocidade, menor é o tempo entre ações de controle, tornando o controle mais preciso. Entre as prataformas mais utilizadas estão o Arduino, a Raspberry, ARM, PIC, ESP32 e Teensy. A plataforma Arduino é baseada em chips ATmega, chegando a frequência máxima de 84 Mhz em seu modelo Arduino DUE, com SRAM de 96 kB e memória flash de 512 kB. A plataforma Raspberry Pi utiliza chips ARM, sendo seu modelo raspberry Pi 4 utilizando 4 npúcles arm com 1.5 Ghz de clock. A plataforma Teensy é baseado em chips ARM, seu modelo teensy 4.0 apresenta um chip ARM Cortex-M7 de 600mHz
 
 \section{Revisão Bibliográfica}
-% \label{sec:ui}
-\subsection{Autores}
-\subsection{Artigos}
 
-\section{Ambiente de Aplicação}
-% \label{sec:ui}
-O uso do veículos aéreos não tripulados do tipo quadrotor tem se expandido em diversas áreas, tanto civíl, quanto militar e também acadêmica.
+Os resultados obtidos através do método BILI apresentam a rede de cocitação e os principais autores enovlvidos nas pesquisas desenvolvidas no assunto abordado.
 
-No ambiente acadêmico, os quadrotores são utilziados como plataforma para teste de estratégias de controle, dada a dificuldade de se estabilizar e de controlar esse tipo de veículo, e também para teste de técnicas de planejamento de trajetória, por se deslocar no espaço tridimensional.
+\subsection{Rede de Cocitação}
 
-Os quadrotores por não necessitarem de um piloto embarcado, poderem ser pequenos e ágeis podem ser utilizados em missões de busca e resgate em abientes hostis, como casos de desmoronamento ou soterramento, e também em missões de espionagem e vigilância, por chamaerem pouca atenção.
+A rede de cocitação obtida mostram uma coesão. As linhas mais fortes indicam uma proximidade maior entre as pesquisas ligadas. 
 
-Tem-se crescido muito o uso de aeronaves do tipo quadrotor na área de agricultura de precisão. Os drones podem ser utilizados para monitorar uma lavroura, mapear, distribuir uso de defensivos, semear e até mesmo irrigar.
+\begin{figure} [h!]	
+    \centering
+    \caption{Método BILI}
+    \includegraphics[width=1\textwidth]{Figures/network.png}
+    \caption*{Fonte: Autoria própria.}
+    \label{fig:QFD}
+  \end{figure}
 
-Outra área de grande utilização é a de enterterimento. Existem muitos drones são comercializados com finalidade exclusivamente lúdica, podendo ser equipados com câmeras para produzir fotografias e vídeos. São utilizados tambpem na cinematografia para realizar essas filmagnes aéreas, que antes eram feitas por helicópteros tripulados que tinham custo associados muito maiores.
+\subsection{Principais Autores}
 
+Os principais autores envolvidos nas pesquisas com tema quadrotor são Kumar V., Siegwart R, Mellinger D., Bouabdallah S. e Mahony R. Bouabdalah junto com Siegwart foram um dos percursores no desenvolvimento de pesquisas sobre o design de quadrotores e controladores. Mellinger traz pesquisas na área de exploração e de planejamento de trajetória. Mahony traz pesquisas na área de pouso autônomo e Kumar diversas pesquisas com técnicas diferentes de planejamento de trajetória.
+
+\begin{figure} [h!]	
+    \centering
+    \caption{Método BILI}
+    \includegraphics[width=1\textwidth]{Figures/newplot.png}
+    \caption*{Fonte: Autoria própria.}
+    \label{fig:QFD}
+  \end{figure}
 
 \section{Funcionalidades}
 % \label{sec:ui}
@@ -137,16 +147,16 @@ No MCFO são adcionados conceitos da otimização por Enxame de partículas (PSO
 
 Em (muller 2015), é apresentado um método computacional mente eficiente que calcula trajetórias com funções de posição polinomiais três vezes diferenciáveis, considerando as retrições de velocida e aceleração do veículo. O algoritmo foi testado com a captura de uma bola arremessada pelo quadrotor.
  
-\begin{itemize}
-    \item Artificial potential field
-    \item probabilistic roadmap
-    \item belief roadmap
-    \item potential fields (PF)
-    \item Heuristic search algorithms
-    \item Optimization methods
-    \item planning under uncertainties
-    \item reactive and bio-inspired obstacle avoidance methods
-\end{itemize}
+% \begin{itemize}
+%     \item Artificial potential field
+%     \item probabilistic roadmap
+%     \item belief roadmap
+%     \item potential fields (PF)
+%     \item Heuristic search algorithms
+%     \item Optimization methods
+%     \item planning under uncertainties
+%     \item reactive and bio-inspired obstacle avoidance methods
+% \end{itemize}
 
 
 
