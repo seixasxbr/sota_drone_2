@@ -5,7 +5,7 @@ Nessa pesquisa foram abordados diversos aspectos que envolvem o desenvolvimento 
 % %--------- NEW SECTION ----------------------
 \section{Quadrotores}
 % \label{sec:ui}
-Quadrotores são aeronaves de asas rotativas, ou seja, são sustentadas e movimentadas por rotores. Diferente das aeronaves de asas fixas, como aviões, as aeronaves de asas rotativas não utilizam seu movimento horizontal para sustentar seu vôo. Isso faz com que esse tipo de veículo apresente um consumo energético muito alto. Apesar disso, as aeronaves de asas rotativas possuem a habilidade de realizar pouso e decolagem vertical e também de realizar vôos estacionários ou quase estacionários.
+Quadrotores são aeronaves de asas rotativas, ou seja, são sustentadas e movimentadas por rotores. Diferente das aeronaves de asas fixas, como aviões, as aeronaves de asas rotativas não utilizam seu movimento horizontal para sustentar seu vôo. Isso faz com que esse tipo de veículo apresente um consumo energético muito alto \cite{karydis2017energetics}. Apesar disso, as aeronaves de asas rotativas possuem a habilidade de realizar pouso e decolagem vertical e também de realizar vôos estacionários ou quase estacionários.
 
 As aeronaves de asas rotativas são classificadas como multirrotores, sendo classificadas quanto ao número de propulsores que elas possuem, podendo ser: quadrotores, hexarotores, octarotores, coaxiais ou helicópteros. Os quadrotores são veículos que apresentam alta manobrabilidade e alto payload, mas apresentam também alto gasto energético, tornando baixa o seu tempo de vôo, sendo um desafio achar baterias mais eficientes que aumentem sua autonomia. A medida que aumenta-se o número de rotores, passando de quadrotores para hexarotores e octarotores, aumenta-se também o payload, que é o quanto a aeronave consegue carregar em relação ao seu peso, e a tolerância a falha, que é a habilidade continuar realizando um vôo controlado mesmo com alguns rotores apresentando falhas de funcionamento. Entretanto, diminui-se também a manobrabilidade e aumenta-se o consumo energético.
 
@@ -47,7 +47,7 @@ A configuração em "x" não apresenta esse efeito, por ter os movimentos de arf
 
 \subsection{Principais Componentes}
 
-Os principais componentes envolvidos no desenvolvimento de um VANT do tipo quadrotor são os rotores que serão responsáveis por toda movimentação do drone, baterias que irão garantir a energia necessária para os rotores, sensores inerciais que irão ser responsáveis pela localização do drone e microcontroladores, responsáveis pela integração de hardware, software e pelo cálculo das ações de controle.
+Os principais componentes envolvidos no desenvolvimento de um VANT do tipo quadrotor são os rotores que serão responsáveis por toda movimentação do drone, baterias que irão garantir a energia necessária para os rotores, sensores inerciais que irão ser responsáveis pela localização do drone e microcontroladores, responsáveis pelo cálculo das ações de controle e a integração de hardware e software.
 
 \subsubsection{Sensores Inerciais}
 
@@ -85,6 +85,8 @@ O microcontrolador é responsável por realizar a comunicação entre componente
 \section{Funcionalidades}
 % \label{sec:ui}
 
+As principais funcionalidades que compõe uma plataforma do tipo quadrotor são controle, localização e planejamento de trajetória. A modelagem é abordada também na discussão que segue.
+
 \subsection{Modelagem}
 A modelagem de um quadrotor é uma das etapas mais importantes no desenvolvimento de um projeto envolvendo esse tipo de veículo. Por ser uma plataforma instável, se torna inviável realizar técnicas de identificação em malha aberta. Sendo assim, é necessário obter o modelo dinâmico da aeronave através de técnicas de modelagem.
 
@@ -118,7 +120,9 @@ O controlador Fuzzy é feito de tal forma que entradas e saídas são mapeadas a
 \subsection{Localização}
 A localização do quadrotor pode ser auxiliada por uso de diversos sensores como LiDAR, GPS, IMU, câmeras monoculares, sensores ultrassônicos e lasers.
 
-A IMU pode ser utilizada para a funcionalidade de localização através da odometria. A IMU pode contar com giroscópio, acelerômetro, magnetômetro e até mesmo barômetro.
+A IMU pode ser utilizada para a funcionalidade de localização através da odometria, podendo contar com giroscópio, acelerômetro, magnetômetro e até mesmo barômetro. Em \cite{loianno2016estimation}, a localização de um quadrotor é realizada utilizando a fusão sensorial de uma câmera monocular com uma IMU.
+
+Em \cite{tomic2012toward}, é feito a odometria da aeronave através da fusão sensorial feita por Filtro Estendido de Kalman de sensores laser com câmera estéreo, em aplicações de busca e resgate em ambiente urbano.
 
 Os sensores que são mais amplamente utilizados atualmente são os sensores baseados em visão. É possível obter bons resultados apenas utilizando câmeras monoculares, como mostrado em \cite{mur2015orb} utilizando o pacote ORB SLAM.
 
@@ -163,15 +167,16 @@ A rede de cocitação obtida mostram uma coesão. As linhas mais fortes indicam 
 \begin{figure} [h!]	
     \centering
     \caption{Rede de Cocitação}
-    \includegraphics[width=1\textwidth,trim={0 6cm 0 
-    4cm},clip]{Figures/network.png}
+    \includegraphics[width=1\textwidth,trim={3cm 6cm 3cm 
+    4cm},clip,height=9cm]{Figures/network.png}
     \caption*{Fonte: Autoria própria.}
     \label{fig:cocitacao}
   \end{figure}
 
 \subsection{Principais Autores}
 
-Os principais autores envolvidos nas pesquisas com tema quadrotor são Kumar V., Siegwart R, Mellinger D., Bouabdallah S. e Mahony R. Bouabdalah junto com Siegwart foram um dos percursores no desenvolvimento de pesquisas sobre o design de quadrotores e controladores. Mellinger traz pesquisas na área de exploração e de planejamento de trajetória. Mahony traz pesquisas na área de pouso autônomo e Kumar diversas pesquisas com técnicas diferentes de planejamento de trajetória.
+Os principais autores envolvidos nas pesquisas com tema quadrotor são Kumar V., Siegwart R, Mellinger D., Bouabdallah S, como mostrado na Figura \ref{fig:autores}. e Mahony R. Bouabdalah junto com Siegwart foram um dos percursores no desenvolvimento de pesquisas sobre o design de quadrotores e controladores. Mellinger traz pesquisas na área de exploração e de planejamento de trajetória. Mahony traz pesquisas na área de pouso autônomo e Kumar diversas pesquisas com técnicas diferentes de planejamento de trajetória.
+
 \clearpage
 \begin{figure} [h]	
     \centering
@@ -181,6 +186,11 @@ Os principais autores envolvidos nas pesquisas com tema quadrotor são Kumar V.,
     \caption*{Fonte: Autoria própria.}
     \label{fig:autores}
 \end{figure}
+
+\section{Mapa Conceitual}
+
+Foi desenvolvido um mapa conceitual para permitir uma representação visual que ajudasse a compreender os conceitos presentes nesse estudo e a relação entre eles. O mapa conceitual desenvolvido se encontra na sessão de apêndice, na Figura \ref{fig:mapac}.
+
 
 %-----------------------------------------------------
 % \section{Mapa Conceitual}
